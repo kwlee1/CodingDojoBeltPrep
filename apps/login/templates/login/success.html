@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+</head>
+<body>
+    <h1>Success! Welcome, {{name}}!</h1>
+    <a href="/logout">Logout</a><br>
+    <h3>Your Messages:</h3>
+    {% for message in messages %}
+        <p>{{message.message}}</p>
+    {% endfor %}
+    <form action='/message' method='post'>
+        {% csrf_token %}
+        New Message: <br>
+        <textarea name="message" cols="30" rows="10"></textarea><br>
+        <input type="submit" value="Post">
+    </form><br>
+    <h3>Existing Users:</h3>
+    {% for user in users %}
+        <p><a href="{% url 'users' id=user.id %}">{{user.first_name}} {{user.last_name}}</a></p>
+    {% endfor %}
+
+</body>
+</html>

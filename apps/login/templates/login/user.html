@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+    <h1>User info: </h1>
+    <a href="/success">back</a><br>
+    <a href="/logout">Logout</a><br>
+    <h3>User Info:</h3>
+        <p>{{user.first_name}} {{user.last_name}}</p>
+        <p>{{user.email}}</p>
+    <h3>User Messages:</h3>
+    {% for message in messages %}
+        <p>{{message.message}}</p>
+    {% endfor %}
+
+</body>
+</html>
